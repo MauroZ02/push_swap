@@ -6,15 +6,16 @@
 /*   By: mzangaro <mzangaro@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 20:03:08 by mzangaro          #+#    #+#             */
-/*   Updated: 2025/09/03 21:29:00 by mzangaro         ###   ########.fr       */
+/*   Updated: 2025/09/04 21:01:48 by mzangaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int main(int ac, char **av)
+int	main(int argc, char **argv)
 {
-	if (check_args(ac) != 0)
-		return (1);
+	t_node	*a;
+	t_node	*b;
+
 	return (0);
 }
