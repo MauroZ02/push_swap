@@ -6,7 +6,7 @@
 /*   By: mzangaro <mzangaro@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 21:06:38 by mzangaro          #+#    #+#             */
-/*   Updated: 2025/09/04 21:44:01 by mzangaro         ###   ########.fr       */
+/*   Updated: 2025/09/06 19:24:49 by mzangaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,20 +36,38 @@ void	pa(t_node **a, t_node **b)
 	}
 }
 
-void	sa(t_node **a)
+static void	swap_top(t_node **s)
 {
 	t_node	*first;
 	t_node	*second;
 	t_node	*third;
 
-	if (a == NULL || *a == NULL || (*a)->next == NULL)
+	if (s == NULL || *s == NULL || (*s)->next == NULL)
 		return ;
-	first = *a;
+	first = *s;
 	second = first->next;
 	third = second->next;
 
 	second->next = first;
 	first->next = third;
-	*a = second;
+	*s = second;
+}
+
+void	sa(t_node **a)
+{
+	swap_top(a);
 	ft_printf("sa\n");
+}
+
+void	sb(t_node **b)
+{
+	swap_top(b);
+	ft_printf("sb\n");
+}
+
+void	ss(t_node **a, t_node **b)
+{
+	swap_top(a);
+	swap_top(b);
+	ft_printf("ss\n");
 }
