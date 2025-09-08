@@ -1,48 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   movements_1.c                                      :+:      :+:    :+:   */
+/*   movements_3.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mzangaro <mzangaro@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/04 21:06:38 by mzangaro          #+#    #+#             */
-/*   Updated: 2025/09/08 20:08:58 by mzangaro         ###   ########.fr       */
+/*   Created: 2025/09/08 16:37:28 by mzangaro          #+#    #+#             */
+/*   Updated: 2025/09/08 19:29:28 by mzangaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	swap_top(t_node **stack)
+static void	rotate_down(t_node **stack)
 {
-	t_node	*first;
-	t_node	*second;
-	t_node	*third;
+	t_node	*prev;
+	t_node	*last;
 
 	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
 		return ;
-	first = *stack;
-	second = first->next;
-	third = second->next;
-	second->next = first;
-	first->next = third;
-	*stack = second;
+	prev = *stack;
+	while (prev->next->next != NULL)
+		prev = prev->next;
+	last = prev->next;
+	prev->next = NULL;
+	last->next = *stack;
+	*stack = last;
 }
 
-void	sa(t_node **a)
+void	rra(t_node **a)
 {
-	swap_top(a);
-	ft_printf("sa\n");
+	rotate_down(a);
+	ft_printf("rra\n");
 }
 
-void	sb(t_node **b)
+void	rrb(t_node **b)
 {
-	swap_top(b);
-	ft_printf("sb\n");
+	rotate_down(b);
+	ft_printf("rrb\n");
 }
 
-void	ss(t_node **a, t_node **b)
+void	rrr(t_node **a, t_node **b)
 {
-	swap_top(a);
-	swap_top(b);
-	ft_printf("ss\n");
+	rotate_down(a);
+	rotate_down(b);
+	ft_printf("rrr\n");
 }
