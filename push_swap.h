@@ -6,7 +6,7 @@
 /*   By: mzangaro <mzangaro@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 19:59:51 by mzangaro          #+#    #+#             */
-/*   Updated: 2025/09/08 22:31:58 by mzangaro         ###   ########.fr       */
+/*   Updated: 2025/09/09 20:09:11 by mzangaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,9 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-# include <limits.h>
 # include "libft/libft.h"
+# define INT_MIN 2147483648
+# define INT_MAX 2147483647
 
 typedef struct s_node
 {
