@@ -6,19 +6,29 @@
 /*   By: mzangaro <mzangaro@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 20:03:08 by mzangaro          #+#    #+#             */
-/*   Updated: 2025/09/08 21:32:05 by mzangaro         ###   ########.fr       */
+/*   Updated: 2025/09/10 22:18:29 by mzangaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// int	main(int argc, char **argv)
-// {
-// 	t_node	*a;
-// 	t_node	*b;
+static int collect_tokens(int argc, char **argv, char ***out_tokens, int *out_count)
+{
+	int	i;
 
-// 	return (0);
-// }
+	i = 0;
+
+	ft_split(argv[1], ' ');
+
+}
+
+int	main(int argc, char **argv)
+{
+	t_node	*a;
+	t_node	*b;
+
+	return (0);
+}
 
 /* Helper to visualise in Terminal */
 /*

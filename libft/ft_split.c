@@ -6,7 +6,7 @@
 /*   By: mzangaro <mzangaro@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 18:21:51 by mzangaro          #+#    #+#             */
-/*   Updated: 2024/10/15 14:34:20 by mzangaro         ###   ########.fr       */
+/*   Updated: 2025/09/10 22:30:13 by mzangaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ char	**ft_split(char const *s, char c)
 	return (split);
 }
 
-/*int main(void)
+int main(void)
 {
 	char *s = "holas comos estas";
 	char c = ' ';
@@ -100,4 +100,4 @@ char	**ft_split(char const *s, char c)
 		i++;
 	}
 	return 0;
-}*/
+}
