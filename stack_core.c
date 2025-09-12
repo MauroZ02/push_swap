@@ -6,7 +6,7 @@
 /*   By: mzangaro <mzangaro@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 20:15:27 by mzangaro          #+#    #+#             */
-/*   Updated: 2025/09/08 22:27:20 by mzangaro         ###   ########.fr       */
+/*   Updated: 2025/09/12 18:03:53 by mzangaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,25 +34,6 @@ t_node	*last_node(t_node *a)
 	while (last->next != NULL)
 		last = last->next;
 	return (last);
-}
-
-void	add_back(t_node **a, t_node *n)
-{
-	t_node	*last;
-
-	if (a == NULL || n == NULL)
-		return ;
-	if (*a == NULL)
-	{
-		n->next = NULL;
-		*a = n;
-		return ;
-	}
-	last = *a;
-	while (last->next != NULL)
-		last = last->next;
-	n->next = NULL;
-	last->next = n;
 }
 
 int	stack_len(t_node *stack)

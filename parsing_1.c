@@ -6,7 +6,7 @@
 /*   By: mzangaro <mzangaro@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 16:54:45 by mzangaro          #+#    #+#             */
-/*   Updated: 2025/09/10 20:02:32 by mzangaro         ###   ########.fr       */
+/*   Updated: 2025/09/12 17:15:25 by mzangaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,11 @@ int	overflow(const char *str, int *out)
 	*out = (int)((long long)acc * (long long)sign);
 	return (1);
 }
+
 /* has_space may be redundant... but we still keep it*/
 int	atoi_overflow(const char *str, int *out, t_node *a)
 {
-	if (has_space(str) != 0) 
+	if (has_space(str) != 0)
 		return (1);
 	if (is_digit(str) != 1)
 		return (1);

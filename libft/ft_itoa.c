@@ -6,13 +6,13 @@
 /*   By: mzangaro <mzangaro@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 20:11:44 by mzangaro          #+#    #+#             */
-/*   Updated: 2024/10/15 13:21:59 by mzangaro         ###   ########.fr       */
+/*   Updated: 2025/09/12 17:58:45 by mzangaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_sizeint(int n)
+static int	ft_sizeint(int n)
 {
 	int	cont;
 

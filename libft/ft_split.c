@@ -6,13 +6,13 @@
 /*   By: mzangaro <mzangaro@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 18:21:51 by mzangaro          #+#    #+#             */
-/*   Updated: 2025/09/10 22:30:13 by mzangaro         ###   ########.fr       */
+/*   Updated: 2025/09/12 20:35:24 by mzangaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_countwords(char const *s, char c)
+static int	ft_countwords(char const *s, char c)
 {
 	int	i;
 	int	words;
@@ -32,7 +32,7 @@ int	ft_countwords(char const *s, char c)
 	return (words);
 }
 
-int	ft_count_letters(char const *s, char c, int j)
+static int	ft_count_letters(char const *s, char c, int j)
 {
 	int	i;
 
@@ -50,6 +50,8 @@ char	**free_split(char	**split)
 	int	i;
 
 	i = 0;
+	if (split == NULL)
+		return (NULL);
 	while (split[i] != NULL)
 	{
 		free(split[i]);
@@ -88,16 +90,16 @@ char	**ft_split(char const *s, char c)
 	return (split);
 }
 
-int main(void)
-{
-	char *s = "holas comos estas";
-	char c = ' ';
-	int i = 0;
-	char **p = ft_split(s, c);
-	while(p[i])
-	{
-		printf("p -->%s\n", p[i]);
-		i++;
-	}
-	return 0;
-}
+// int main(void)
+// {
+// 	char *s = "holas comos estas";
+// 	char c = ' ';
+// 	int i = 0;
+// 	char **p = ft_split(s, c);
+// 	while(p[i])
+// 	{
+// 		printf("p -->%s\n", p[i]);
+// 		i++;
+// 	}
+// 	return 0;
+// }
