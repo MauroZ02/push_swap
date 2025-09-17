@@ -6,7 +6,7 @@
 /*   By: mzangaro <mzangaro@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 16:54:45 by mzangaro          #+#    #+#             */
-/*   Updated: 2025/09/12 17:15:25 by mzangaro         ###   ########.fr       */
+/*   Updated: 2025/09/17 17:24:57 by mzangaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	overflow(const char *str, int *out)
 	return (1);
 }
 
-/* has_space may be redundant... but we still keep it*/
+/* has_space may be redundant... but we still keep it so far */
 int	atoi_overflow(const char *str, int *out, t_node *a)
 {
 	if (has_space(str) != 0)

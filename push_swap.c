@@ -6,33 +6,13 @@
 /*   By: mzangaro <mzangaro@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 20:03:08 by mzangaro          #+#    #+#             */
-/*   Updated: 2025/09/12 21:51:47 by mzangaro         ###   ########.fr       */
+/*   Updated: 2025/09/17 15:59:02 by mzangaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static char	*normalise_tabs(const char *arg)
-{
-	char	*dup;
-	int		i;
-
-	i = 0;
-	if (arg == NULL)
-		return (NULL);
-	dup = ft_strdup(arg);
-	if (dup == NULL)
-		return (NULL);
-	while (dup[i])
-	{
-		if (dup[i] >= 9 && dup[i] <= 13)
-			dup[i] = ' ';
-		i++;
-	}
-	return (dup);
-}
-
-static void	verify_args(t_node **a, t_node **b, char **parts)
+static void	verify_args(char **parts, t_node **a, t_node **b)
 {
 	t_node	*n;
 	int		v;
@@ -57,12 +37,32 @@ static void	verify_args(t_node **a, t_node **b, char **parts)
 	}
 }
 
+static char	*only_space(const char *arg)
+{
+	char	*dup;
+	int		i;
+
+	i = 0;
+	if (arg == NULL)
+		return (NULL);
+	dup = ft_strdup(arg);
+	if (dup == NULL)
+		return (NULL);
+	while (dup[i])
+	{
+		if (dup[i] >= 9 && dup[i] <= 13)
+			dup[i] = ' ';
+		i++;
+	}
+	return (dup);
+}
+
 static char	**split_args(const char *arg, t_node **a, t_node **b)
 {
 	char	*tmp;
 	char	**parts;
 
-	tmp = normalise_tabs(arg);
+	tmp = only_space(arg);
 	if (tmp == NULL)
 		exit_and_free(a, b);
 	parts = ft_split(tmp, ' ');
@@ -93,17 +93,21 @@ int	main(int argc, char **argv)
 	while (i < argc)
 	{
 		parts = split_args(argv[i], &a, &b);
-		verify_args(&a, &b, parts);
+		verify_args(parts, &a, &b);
 		free_split(parts);
 		i++;
 	}
+	if (a == NULL)
+		return (0);
 	if (is_sorted(a))
 	{
-		if (a != NULL)
-			free_stack(&a);
+		free_stack(&a);
 		if (b != NULL)
 			free_stack(&b);
+		return (0);
 	}
+	free_stack(&a);
+	free_stack(&b);
 	return (0);
 }
 
