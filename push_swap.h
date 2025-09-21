@@ -6,7 +6,7 @@
 /*   By: mzangaro <mzangaro@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 19:59:51 by mzangaro          #+#    #+#             */
-/*   Updated: 2025/09/10 20:26:49 by mzangaro         ###   ########.fr       */
+/*   Updated: 2025/09/21 19:35:15 by mzangaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 
 typedef struct s_node
 {
+	int				i;
 	int				value;
 	struct s_node	*next;
 }	t_node;
