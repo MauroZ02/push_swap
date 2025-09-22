@@ -6,7 +6,7 @@
 /*   By: mzangaro <mzangaro@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 19:59:51 by mzangaro          #+#    #+#             */
-/*   Updated: 2025/09/21 19:35:15 by mzangaro         ###   ########.fr       */
+/*   Updated: 2025/09/23 00:32:19 by mzangaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,23 @@ t_node	*new_node(int value);
 t_node	*last_node(t_node *a);
 int		stack_len(t_node *stack);
 int		is_sorted(t_node *stack);
+
+/* indexing.c */
+int		count_smaller(t_node *head, int value);
+void	assign_index(t_node *a);
+int		find_smaller_index(t_node *a);
+void	smaller_to_top(t_node **a, int pos);
+
+/* mini_sort.c */
+void	sort_two(t_node **a);
+void	sort_three(t_node **a);
+void	sort_four(t_node **a, t_node **b);
+void	sort_five(t_node **a, t_node **b);
+void	sort_stack(t_node **a, t_node **b);
+
+#ifdef DEBUG
+void    debug_print_stack(const char *name, t_node *s);
+void    debug_print_stacks(t_node *a, t_node *b);
+#endif
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: mzangaro <mzangaro@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 20:03:08 by mzangaro          #+#    #+#             */
-/*   Updated: 2025/09/17 15:59:02 by mzangaro         ###   ########.fr       */
+/*   Updated: 2025/09/23 01:00:03 by mzangaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,11 +99,34 @@ int	main(int argc, char **argv)
 	}
 	if (a == NULL)
 		return (0);
+	assign_index(a);
 	if (is_sorted(a))
 	{
 		free_stack(&a);
 		if (b != NULL)
 			free_stack(&b);
+		ft_printf("Is sorted\n");
+		return (0);
+	}
+	#ifdef DEBUG
+	ft_printf("ANTES:\n");
+	debug_print_stacks(a, b);
+	#endif
+
+	sort_stack(&a, &b);
+
+	#ifdef DEBUG
+	ft_printf("\nDESPUÉS:\n");
+	debug_print_stacks(a, b);
+	#endif
+
+	//sort_stack(&a, &b);
+	if (is_sorted(a))
+	{
+		free_stack(&a);
+		if (b != NULL)
+			free_stack(&b);
+		ft_printf("Is sorted\n");
 		return (0);
 	}
 	free_stack(&a);
