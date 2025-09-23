@@ -5,7 +5,6 @@ LIBFT  = $(LIBFT_PATH)/libft.a
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-DBGFLAGS = -DDEBUG
 RM = rm -f
 
 SRCS =  push_swap.c\
@@ -14,7 +13,7 @@ SRCS =  push_swap.c\
 		stack_core.c\
 		indexing.c\
 		mini_sort.c\
-		debug.c
+		k_sort.c
 
 OBJS = $(SRCS:.c=.o)
 
@@ -39,7 +38,4 @@ fclean: clean
 
 re: fclean all
 
-debug: $(LIBFT)
-	$(CC) $(CFLAGS) $(DBGFLAGS) $(SRCS) $(LIBFT) -o push_swap_debug
-
-.PHONY: all clean fclean re debug
+.PHONY: all clean fclean re

@@ -6,7 +6,7 @@
 /*   By: mzangaro <mzangaro@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 19:36:57 by mzangaro          #+#    #+#             */
-/*   Updated: 2025/09/22 23:34:54 by mzangaro         ###   ########.fr       */
+/*   Updated: 2025/09/23 20:31:29 by mzangaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void	sort_two(t_node **a)
 {
-	if (a == NULL || *a == NULL || (*a)->next == NULL)
-		return ;
 	t_node	*first;
 	t_node	*next;
 
+	if (a == NULL || *a == NULL || (*a)->next == NULL)
+		return ;
 	first = *a;
 	next = first->next;
 	if (first->value > next->value)
@@ -27,13 +27,13 @@ void	sort_two(t_node **a)
 
 void	sort_three(t_node **a)
 {
-	if (a == NULL || *a == NULL || (*a)->next == NULL ||
-		(*a)->next->next == NULL)
-		return ;
 	t_node	*first;
 	t_node	*next;
 	t_node	*last;
 
+	if (a == NULL || *a == NULL || (*a)->next == NULL
+		|| (*a)->next->next == NULL)
+		return ;
 	first = *a;
 	next = first->next;
 	last = next->next;
@@ -54,22 +54,23 @@ void	sort_four(t_node **a, t_node **b)
 {
 	int		pos;
 
-	if (a == NULL || *a == NULL || (*a)->next == NULL ||
-	(*a)->next->next == NULL || (*a)->next->next->next == NULL)
-	return ;
+	if (a == NULL || *a == NULL || (*a)->next == NULL
+		|| (*a)->next->next == NULL || (*a)->next->next->next == NULL)
+		return ;
 	pos = find_smaller_index(*a);
 	smaller_to_top(a, pos);
 	pb(a, b);
 	sort_three(a);
-	pa(a,b);
+	pa(a, b);
 }
 
 void	sort_five(t_node **a, t_node **b)
 {
 	int	pos;
-	if (a == NULL || *a == NULL || (*a)->next == NULL ||
-		(*a)->next->next == NULL || (*a)->next->next->next == NULL ||
-		(*a)->next->next->next->next == NULL)
+
+	if (a == NULL || *a == NULL || (*a)->next == NULL
+		|| (*a)->next->next == NULL || (*a)->next->next->next == NULL
+		|| (*a)->next->next->next->next == NULL)
 		return ;
 	pos = find_smaller_index(*a);
 	smaller_to_top(a, pos);
@@ -82,6 +83,8 @@ void	sort_stack(t_node **a, t_node **b)
 {
 	int	len;
 
+	if (is_sorted(*a))
+		return ;
 	len = stack_len(*a);
 	if (len == 2)
 		sort_two(a);
@@ -91,6 +94,6 @@ void	sort_stack(t_node **a, t_node **b)
 		sort_four(a, b);
 	else if (len == 5)
 		sort_five(a, b);
-	// else if (len > 5)
-	// 	k_sort(a, b);
+	else if (len > 5)
+		k_sort(a, b);
 }

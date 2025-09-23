@@ -6,7 +6,7 @@
 /*   By: mzangaro <mzangaro@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 21:39:07 by mzangaro          #+#    #+#             */
-/*   Updated: 2025/09/22 23:25:15 by mzangaro         ###   ########.fr       */
+/*   Updated: 2025/09/23 14:15:09 by mzangaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void	smaller_to_top(t_node **a, int pos)
 			pos--;
 		}
 	}
-	else 
+	else
 	{
 		i = len - pos;
 		while (i > 0)

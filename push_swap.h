@@ -6,7 +6,7 @@
 /*   By: mzangaro <mzangaro@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 19:59:51 by mzangaro          #+#    #+#             */
-/*   Updated: 2025/09/23 00:32:19 by mzangaro         ###   ########.fr       */
+/*   Updated: 2025/09/23 22:40:10 by mzangaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,9 +78,12 @@ void	sort_four(t_node **a, t_node **b);
 void	sort_five(t_node **a, t_node **b);
 void	sort_stack(t_node **a, t_node **b);
 
-#ifdef DEBUG
-void    debug_print_stack(const char *name, t_node *s);
-void    debug_print_stacks(t_node *a, t_node *b);
-#endif
+/* k_sort.c */
+int		find_max_index(t_node *stack);
+int		pos_index(t_node *stack, int index);
+int		pos_in_chunk(t_node *a, int high);
+void	phase_one(t_node **a, t_node **b, int width, int soft_pct);
+void	phase_two(t_node **a, t_node **b);
+void	k_sort(t_node **a, t_node **b);
 
 #endif
