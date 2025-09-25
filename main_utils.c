@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   main_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mzangaro <mzangaro@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/03 20:03:08 by mzangaro          #+#    #+#             */
-/*   Updated: 2025/09/23 22:40:38 by mzangaro         ###   ########.fr       */
+/*   Created: 2025/09/25 04:57:34 by mzangaro          #+#    #+#             */
+/*   Updated: 2025/09/25 04:59:21 by mzangaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	verify_args(char **parts, t_node **a, t_node **b)
+void	verify_args(char **parts, t_node **a, t_node **b)
 {
 	t_node	*n;
 	int		v;
@@ -37,7 +37,7 @@ static void	verify_args(char **parts, t_node **a, t_node **b)
 	}
 }
 
-static char	*only_space(const char *arg)
+char	*only_space(const char *arg)
 {
 	char	*dup;
 	int		i;
@@ -57,7 +57,7 @@ static char	*only_space(const char *arg)
 	return (dup);
 }
 
-static char	**split_args(const char *arg, t_node **a, t_node **b)
+char	**split_args(const char *arg, t_node **a, t_node **b)
 {
 	char	*tmp;
 	char	**parts;
@@ -75,45 +75,4 @@ static char	**split_args(const char *arg, t_node **a, t_node **b)
 		exit_and_free(a, b);
 	}
 	return (parts);
-}
-
-/* new_node, ft_split, ft_strdup need to be freed */
-int	main(int argc, char **argv)
-{
-	t_node	*a;
-	t_node	*b;
-	char	**parts;
-	int		i;
-
-	a = NULL;
-	b = NULL;
-	if (argc == 1)
-		return (0);
-	i = 1;
-	while (i < argc)
-	{
-		parts = split_args(argv[i], &a, &b);
-		verify_args(parts, &a, &b);
-		free_split(parts);
-		i++;
-	}
-	if (a == NULL)
-		return (0);
-	assign_index(a);
-	if (is_sorted(a))
-	{
-		free_stack(&a);
-		free_stack(&b);
-		return (0);
-	}
-	sort_stack(&a, &b);
-	if (is_sorted(a))
-	{
-		free_stack(&a);
-		free_stack(&b);
-		return (0);
-	}
-	free_stack(&a);
-	free_stack(&b);
-	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: mzangaro <mzangaro@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 19:59:51 by mzangaro          #+#    #+#             */
-/*   Updated: 2025/09/23 22:40:10 by mzangaro         ###   ########.fr       */
+/*   Updated: 2025/09/25 05:00:05 by mzangaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,45 +25,57 @@ typedef struct s_node
 	struct s_node	*next;
 }	t_node;
 
-/* movements_0.c */
+typedef struct s_chunk
+{
+	int	len;
+	int	width;
+	int	high;
+	int	low;
+	int	prev_soft;
+	int	soft;
+}	t_chunk;
+
+/* mvs_push.c */
 t_node	*remove_front(t_node **top);
 void	add_front(t_node **top, t_node *n);
-void	add_back(t_node **a, t_node *n);
 void	pb(t_node **a, t_node **b);
 void	pa(t_node **a, t_node **b);
 
-/* movements_1.c */
-void	sa(t_node **a);
-void	sb(t_node **b);
-void	ss(t_node **a, t_node **b);
-
-/* movements_2.c*/
-void	ra(t_node **a);
-void	rb(t_node **b);
-void	rr(t_node **a, t_node **b);
-
-/* movements_3.c*/
+/* mvs_reverse_rot.c */
 void	rra(t_node **a);
 void	rrb(t_node **b);
 void	rrr(t_node **a, t_node **b);
 
-/* parsing_0.c */
+/* mvs_rotate.c */
+void	ra(t_node **a);
+void	rb(t_node **b);
+void	rr(t_node **a, t_node **b);
+
+/* mvs_swap.c */
+void	sa(t_node **a);
+void	sb(t_node **b);
+void	ss(t_node **a, t_node **b);
+
+/* stack_utils_0.c */
+t_node	*new_node(int value);
+void	add_back(t_node **a, t_node *n);
+t_node	*last_node(t_node *a);
+int		stack_len(t_node *stack);
+
+/* stack_utils_1.c */
 void	free_stack(t_node **stack);
 void	exit_and_free(t_node **a, t_node **b);
+
+/* parsing_0.c */
 int		has_space(const char *str);
-int		is_digit(const char *str);
 int		has_duplicate(t_node *a, int v);
+int		is_digit(const char *str);
+int		is_sorted(t_node *stack);
 
 /* parsing_1.c */
 int		aux_overflow(const char *str, int *out_i, int *out_sign);
 int		overflow(const char *str, int *out);
 int		atoi_overflow(const char *str, int *out, t_node *a);
-
-/* stack_core.c */
-t_node	*new_node(int value);
-t_node	*last_node(t_node *a);
-int		stack_len(t_node *stack);
-int		is_sorted(t_node *stack);
 
 /* indexing.c */
 int		count_smaller(t_node *head, int value);
@@ -78,12 +90,29 @@ void	sort_four(t_node **a, t_node **b);
 void	sort_five(t_node **a, t_node **b);
 void	sort_stack(t_node **a, t_node **b);
 
-/* k_sort.c */
+/* k_sort_0.c */
 int		find_max_index(t_node *stack);
 int		pos_index(t_node *stack, int index);
 int		pos_in_chunk(t_node *a, int high);
-void	phase_one(t_node **a, t_node **b, int width, int soft_pct);
+
+/* k_sort_1.c */
+void	chunk_recalc_from_low(t_chunk *ck);
+int		chunk_advance(t_chunk *ck);
+int		init_chunk(t_chunk *ck, int len, int width, int prev_soft);
+
+/* k_sort_2.c */
+void	push_and_organise(t_node **a, t_node **b, t_chunk *ck);
+void	pos_to_top_a(t_node **a, int pos);
+void	pos_to_top_b(t_node **b, int pos);
+
+/* algorithm.c */
+void	phase_one(t_node **a, t_node **b, int width, int prev_soft);
 void	phase_two(t_node **a, t_node **b);
 void	k_sort(t_node **a, t_node **b);
+
+/* main_utils.c */
+void	verify_args(char **parts, t_node **a, t_node **b);
+char	*only_space(const char *arg);
+char	**split_args(const char *arg, t_node **a, t_node **b);
 
 #endif

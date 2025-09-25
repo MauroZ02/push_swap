@@ -7,13 +7,14 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
 
-SRCS =  push_swap.c\
-		parsing_0.c parsing_1.c\
-		movements_0.c movements_1.c movements_2.c movements_3.c\
-		stack_core.c\
+SRCS =	algorithm.c\
 		indexing.c\
+		k_sort_0.c k_sort_1.c k_sort_2.c\
+		main_utils.c main.c\
 		mini_sort.c\
-		k_sort.c
+		mvs_push.c mvs_reverse_rot.c mvs_rotate.c mvs_swap.c\
+		parsing_0.c parsing_1.c\
+		stack_utils_0.c stack_utils_1.c
 
 OBJS = $(SRCS:.c=.o)
 
