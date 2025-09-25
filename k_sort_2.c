@@ -6,7 +6,7 @@
 /*   By: mzangaro <mzangaro@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/24 23:32:10 by mzangaro          #+#    #+#             */
-/*   Updated: 2025/09/25 04:34:29 by mzangaro         ###   ########.fr       */
+/*   Updated: 2025/09/25 19:32:58 by mzangaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	push_and_organise(t_node **a, t_node **b, t_chunk *ck)
 }
 
 /* Llevar a TOP en A (emite ra/rra) */
- void	pos_to_top_a(t_node **a, int pos)
+void	pos_to_top_a(t_node **a, int pos)
 {
 	int	len;
 	int	steps;
@@ -51,7 +51,7 @@ void	push_and_organise(t_node **a, t_node **b, t_chunk *ck)
 }
 
 /* Llevar a TOP en B (emite rb/rrb) */
- void	pos_to_top_b(t_node **b, int pos)
+void	pos_to_top_b(t_node **b, int pos)
 {
 	int	len;
 	int	steps;

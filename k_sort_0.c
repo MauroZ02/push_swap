@@ -6,7 +6,7 @@
 /*   By: mzangaro <mzangaro@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 14:19:53 by mzangaro          #+#    #+#             */
-/*   Updated: 2025/09/25 04:48:18 by mzangaro         ###   ########.fr       */
+/*   Updated: 2025/09/25 18:21:35 by mzangaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,11 @@
 
 static int	find_first_pos_in_chunk(t_node *a, int high)
 {
-	t_node *current = a;
-	int pos = 0;
+	t_node	*current;
+	int		pos;
+
+	pos = 0;
+	current = a;
 	while (current != NULL)
 	{
 		if (current->i <= high)
@@ -26,11 +29,16 @@ static int	find_first_pos_in_chunk(t_node *a, int high)
 	return (-1);
 }
 
-static void	find_last_pos_and_len(t_node *a, int high, int *pos_bottom, int *len)
+void	find_last_pos_and_len(t_node *a, int high, int *pos_bottom, int *len)
 {
-	t_node *current = a;
-	int pos = 0, local = 0;
+	t_node	*current;
+	int		pos;
+	int		local;
+
+	pos = 0;
+	local = 0;
 	*pos_bottom = -1;
+	current = a;
 	while (current != NULL)
 	{
 		if (current->i <= high)
@@ -85,7 +93,10 @@ int	pos_index(t_node *stack, int index)
 	 a index in top position, or in bottom position. */
 int	pos_in_chunk(t_node *a, int high)
 {
-	int pos_top, pos_bottom, len;
+	int	pos_top;
+	int	pos_bottom;
+	int	len;
+
 	if (a == NULL)
 		return (-1);
 	pos_top = find_first_pos_in_chunk(a, high);

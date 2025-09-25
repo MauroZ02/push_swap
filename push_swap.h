@@ -6,7 +6,7 @@
 /*   By: mzangaro <mzangaro@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 19:59:51 by mzangaro          #+#    #+#             */
-/*   Updated: 2025/09/25 05:00:05 by mzangaro         ###   ########.fr       */
+/*   Updated: 2025/09/25 19:09:13 by mzangaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,8 @@ void	pos_to_top_a(t_node **a, int pos);
 void	pos_to_top_b(t_node **b, int pos);
 
 /* algorithm.c */
-void	phase_one(t_node **a, t_node **b, int width, int prev_soft);
+// void	phase_one(t_node **a, t_node **b, int width, int prev_soft);
+void	phase_one(t_node **a, t_node **b);
 void	phase_two(t_node **a, t_node **b);
 void	k_sort(t_node **a, t_node **b);
 
