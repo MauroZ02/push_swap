@@ -1,17 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   movements_1.c                                      :+:      :+:    :+:   */
+/*   mvs_swap.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mzangaro <mzangaro@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 21:06:38 by mzangaro          #+#    #+#             */
-/*   Updated: 2025/09/08 20:08:58 by mzangaro         ###   ########.fr       */
+/*   Updated: 2025/09/27 20:39:05 by mzangaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/* swaps nodes in first and second place */
 static void	swap_top(t_node **stack)
 {
 	t_node	*first;

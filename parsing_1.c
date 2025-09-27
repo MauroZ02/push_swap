@@ -6,7 +6,7 @@
 /*   By: mzangaro <mzangaro@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 16:54:45 by mzangaro          #+#    #+#             */
-/*   Updated: 2025/09/17 17:24:57 by mzangaro         ###   ########.fr       */
+/*   Updated: 2025/09/27 20:37:29 by mzangaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,16 @@ int	aux_overflow(const char *str, int *out_i, int *out_sign)
 	return (1);
 }
 
-int	overflow(const char *str, int *out)
+/* after checking the sign of the number; checks if it fits the max & min,
+	 and converts to int */
+int	overflow(const char *str, int *v)
 {
 	int					i;
 	int					sign;
 	unsigned long long	acc;
 	unsigned long long	limit;
 
-	if (str == NULL || out == NULL || aux_overflow(str, &i, &sign) != 1)
+	if (str == NULL || v == NULL || aux_overflow(str, &i, &sign) != 1)
 		return (0);
 	acc = 0;
 	limit = (unsigned long long)INT_MAX;
@@ -56,20 +58,20 @@ int	overflow(const char *str, int *out)
 			return (0);
 		i++;
 	}
-	*out = (int)((long long)acc * (long long)sign);
+	*v = (int)((long long)acc * (long long)sign);
 	return (1);
 }
 
 /* has_space may be redundant... but we still keep it so far */
-int	atoi_overflow(const char *str, int *out, t_node *a)
+int	atoi_overflow(const char *str, int *v, t_node *a)
 {
 	if (has_space(str) != 0)
 		return (1);
 	if (is_digit(str) != 1)
 		return (1);
-	if (overflow(str, out) != 1)
+	if (overflow(str, v) != 1)
 		return (1);
-	if (has_duplicate(a, *out) == 1)
+	if (has_duplicate(a, *v) == 1)
 		return (1);
 	return (0);
 }

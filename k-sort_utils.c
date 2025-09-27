@@ -1,54 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   k_sort_0.c                                         :+:      :+:    :+:   */
+/*   k-sort_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mzangaro <mzangaro@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/23 14:19:53 by mzangaro          #+#    #+#             */
-/*   Updated: 2025/09/25 18:21:35 by mzangaro         ###   ########.fr       */
+/*   Created: 2025/09/25 02:19:50 by mzangaro          #+#    #+#             */
+/*   Updated: 2025/09/27 21:15:21 by mzangaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static int	find_first_pos_in_chunk(t_node *a, int high)
-{
-	t_node	*current;
-	int		pos;
-
-	pos = 0;
-	current = a;
-	while (current != NULL)
-	{
-		if (current->i <= high)
-			return (pos);
-		pos++;
-		current = current->next;
-	}
-	return (-1);
-}
-
-void	find_last_pos_and_len(t_node *a, int high, int *pos_bottom, int *len)
-{
-	t_node	*current;
-	int		pos;
-	int		local;
-
-	pos = 0;
-	local = 0;
-	*pos_bottom = -1;
-	current = a;
-	while (current != NULL)
-	{
-		if (current->i <= high)
-			*pos_bottom = pos;
-		pos++;
-		local++;
-		current = current->next;
-	}
-	*len = local;
-}
 
 /* it returns the max index value, not its position. (-1) = Error */
 int	find_max_index(t_node *stack)
@@ -89,21 +51,60 @@ int	pos_index(t_node *stack, int index)
 	return (-1);
 }
 
-/* this function scans the stack and finds the suitable index to push either
-	 a index in top position, or in bottom position. */
-int	pos_in_chunk(t_node *a, int high)
+/* leads the desired a index to top */
+void	pos_to_top_a(t_node **a, int pos)
 {
-	int	pos_top;
-	int	pos_bottom;
 	int	len;
+	int	steps;
 
-	if (a == NULL)
-		return (-1);
-	pos_top = find_first_pos_in_chunk(a, high);
-	if (pos_top == -1)
-		return (-1);
-	find_last_pos_and_len(a, high, &pos_bottom, &len);
-	if (pos_top <= (len - pos_bottom))
-		return (pos_top);
-	return (pos_bottom);
+	if (!a || !*a || pos < 0)
+		return ;
+	len = stack_len(*a);
+	if (pos <= len / 2)
+	{
+		steps = pos;
+		while (steps > 0)
+		{
+			ra(a);
+			steps--;
+		}
+	}
+	else
+	{
+		steps = len - pos;
+		while (steps > 0)
+		{
+			rra(a);
+			steps--;
+		}
+	}
+}
+
+/* leads the desired b index to top */
+void	pos_to_top_b(t_node **b, int pos)
+{
+	int	len;
+	int	steps;
+
+	if (!b || !*b || pos < 0)
+		return ;
+	len = stack_len(*b);
+	if (pos <= len / 2)
+	{
+		steps = pos;
+		while (steps > 0)
+		{
+			rb(b);
+			steps--;
+		}
+	}
+	else
+	{
+		steps = len - pos;
+		while (steps > 0)
+		{
+			rrb(b);
+			steps--;
+		}
+	}
 }

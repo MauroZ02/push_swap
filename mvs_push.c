@@ -1,17 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   movements_0.c                                      :+:      :+:    :+:   */
+/*   mvs_push.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mzangaro <mzangaro@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 18:16:14 by mzangaro          #+#    #+#             */
-/*   Updated: 2025/09/24 23:18:25 by mzangaro         ###   ########.fr       */
+/*   Updated: 2025/09/27 20:44:10 by mzangaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/* deletes the top node */
 t_node	*remove_front(t_node **top)
 {
 	t_node	*first;
@@ -26,6 +27,7 @@ t_node	*remove_front(t_node **top)
 	return (first);
 }
 
+/* assigns the node next to the deleted one as the head */
 void	add_front(t_node **top, t_node *n)
 {
 	if (top == NULL || n == NULL)
@@ -34,6 +36,7 @@ void	add_front(t_node **top, t_node *n)
 	*top = n;
 }
 
+/* pushes the top node in A to B */
 void	pb(t_node **a, t_node **b)
 {
 	t_node	*n;
@@ -46,6 +49,7 @@ void	pb(t_node **a, t_node **b)
 	}
 }
 
+/* pushes the top node in B to A */
 void	pa(t_node **a, t_node **b)
 {
 	t_node	*n;

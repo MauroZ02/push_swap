@@ -6,13 +6,13 @@
 /*   By: mzangaro <mzangaro@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 21:39:07 by mzangaro          #+#    #+#             */
-/*   Updated: 2025/09/23 14:15:09 by mzangaro         ###   ########.fr       */
+/*   Updated: 2025/09/27 20:35:07 by mzangaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/* counts how many smaller numbers are */
+/* counts how many numbers are smaller than this*/
 int	count_smaller(t_node *head, int value)
 {
 	t_node	*current;
@@ -67,7 +67,7 @@ int	find_smaller_index(t_node *a)
 	return (best_pos);
 }
 
-/* delivers the index 0 to the top */
+/* leads the index 0 to the top */
 void	smaller_to_top(t_node **a, int pos)
 {
 	int	len;

@@ -6,7 +6,7 @@
 /*   By: mzangaro <mzangaro@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 19:36:57 by mzangaro          #+#    #+#             */
-/*   Updated: 2025/09/23 20:31:29 by mzangaro         ###   ########.fr       */
+/*   Updated: 2025/09/27 20:33:43 by mzangaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,6 @@ void	sort_three(t_node **a)
 	first = *a;
 	next = first->next;
 	last = next->next;
-	if (a == NULL || *a == NULL || next == NULL || last == NULL)
-		return ;
 	if (first->value > next->value && first->value > last->value)
 		ra(a);
 	else if (first->value < next->value && next->value > last->value)

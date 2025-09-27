@@ -6,7 +6,7 @@
 /*   By: mzangaro <mzangaro@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 19:59:51 by mzangaro          #+#    #+#             */
-/*   Updated: 2025/09/25 19:09:13 by mzangaro         ###   ########.fr       */
+/*   Updated: 2025/09/27 17:04:28 by mzangaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,6 @@ typedef struct s_node
 	int				value;
 	struct s_node	*next;
 }	t_node;
-
-typedef struct s_chunk
-{
-	int	len;
-	int	width;
-	int	high;
-	int	low;
-	int	prev_soft;
-	int	soft;
-}	t_chunk;
 
 /* mvs_push.c */
 t_node	*remove_front(t_node **top);
@@ -59,10 +49,7 @@ void	ss(t_node **a, t_node **b);
 /* stack_utils_0.c */
 t_node	*new_node(int value);
 void	add_back(t_node **a, t_node *n);
-t_node	*last_node(t_node *a);
 int		stack_len(t_node *stack);
-
-/* stack_utils_1.c */
 void	free_stack(t_node **stack);
 void	exit_and_free(t_node **a, t_node **b);
 
@@ -93,20 +80,10 @@ void	sort_stack(t_node **a, t_node **b);
 /* k_sort_0.c */
 int		find_max_index(t_node *stack);
 int		pos_index(t_node *stack, int index);
-int		pos_in_chunk(t_node *a, int high);
-
-/* k_sort_1.c */
-void	chunk_recalc_from_low(t_chunk *ck);
-int		chunk_advance(t_chunk *ck);
-int		init_chunk(t_chunk *ck, int len, int width, int prev_soft);
-
-/* k_sort_2.c */
-void	push_and_organise(t_node **a, t_node **b, t_chunk *ck);
 void	pos_to_top_a(t_node **a, int pos);
 void	pos_to_top_b(t_node **b, int pos);
 
 /* algorithm.c */
-// void	phase_one(t_node **a, t_node **b, int width, int prev_soft);
 void	phase_one(t_node **a, t_node **b);
 void	phase_two(t_node **a, t_node **b);
 void	k_sort(t_node **a, t_node **b);

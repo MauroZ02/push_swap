@@ -1,17 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   movements_2.c                                      :+:      :+:    :+:   */
+/*   mvs_rotate.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mzangaro <mzangaro@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 14:51:10 by mzangaro          #+#    #+#             */
-/*   Updated: 2025/09/08 19:29:33 by mzangaro         ###   ########.fr       */
+/*   Updated: 2025/09/27 20:40:12 by mzangaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/* leads the top node of the stack to the bottom */
 static void	rotate_up(t_node **stack)
 {
 	t_node	*first;
